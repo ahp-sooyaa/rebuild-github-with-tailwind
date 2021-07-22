@@ -3,3 +3,5 @@
 ## index.html
 
 ![index.html](index.png)
+
+![smallScreen.html](smallScreen.png)

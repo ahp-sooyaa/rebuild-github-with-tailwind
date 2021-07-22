@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="/css/tailwind.css">
 </head>
 <body>
-    <nav class="flex items-center justify-between bg-gray-800 px-9 py-4 text-white">
+    <nav class="flex items-center justify-between bg-gray-800 px-5 lg:px-9 py-4 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="block md:hidden h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
         <!--left-->
-        <div class="flex space-x-5">
+        <div class="flex flex-1 space-x-5 items-center justify-center md:items-stretch md:justify-start">
             <a href="#">
                 <svg fill="white" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
                     <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
             </a>
-            <div class="flex items-center relative">
+            <div class="hidden md:flex items-center relative">
                 <input type="text" placeholder="Search or jump to…" class="w-60 bg-transparent border border-gray-600 px-3 rounded-lg h-full">
                 <div class="absolute right-0">
                     <div class="border border-gray-500 mr-2 px-2 rounded text-white text-xs">
@@ -26,8 +29,11 @@
                     </div>
                 </div>
             </div>
-            <ul class="flex items-center space-x-5">
-                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Pull requests</li>
+            <ul class="hidden md:flex items-center space-x-5">
+                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">
+                    <span class="hidden lg:block">Pull requests</span>
+                    <span class="md:block lg:hidden">Pulls</span>
+                </li>
                 <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Issues</li>
                 <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Marketplace</li>
                 <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Explore</li>
@@ -42,7 +48,7 @@
                 </svg>
                 <div class="absolute bg-blue-500 border-2 border-gray-900 h-3 right-0 rounded-full top-0 w-3"></div>
             </div>
-            <div class="flex items-center cursor-pointer hover:text-gray-400">
+            <div class="hidden md:flex items-center cursor-pointer hover:text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -50,7 +56,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </div>
-            <div class="flex items-center cursor-pointer hover:text-gray-400">
+            <div class="hidden md:flex items-center cursor-pointer hover:text-gray-400">
                 <img src="https://avatars.githubusercontent.com/u/57122433?s=60&amp;v=4" alt="@ahp-sooyaa" size="20" data-view-component="true" height="20" width="20" class="rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="none">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -59,20 +65,63 @@
         </div>
     </nav>
 
-    <header class="bg-gray-100 px-9 pt-4">
-        <div class="flex justify-between">
-            <div class="flex items-center">
+    <header class="bg-gray-50 px-5 lg:px-9 pt-4">
+        <div class="flex flex-col md:flex-row justify-between items-start">
+            <div class="flex flex-wrap items-center mb-3">
                 <svg class="mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
-                <div class="flex space-x-2 text-xl">
-                    <a href="#" class="text-blue-600">
+                <!-- <div class="flex space-x-2 text-md md:text-xl"> -->
+                    <a href="#" class="text-blue-600 text-lg md:text-xl">
                         ahp-sooyaa
                     </a>
-                    <span class="text-black">/</span>
-                    <a href="#" class="text-blue-600 font-semibold">html-css-workshop</a>
+                    <span class="text-black mx-3">/</span>
+                    <a href="#" class="text-blue-600 font-semibold text-xl md:text-xl lg:text-2xl">html-css-workshop</a>
+                <!-- </div> -->
+            </div>
+
+            <!-- mobile layout -->
+            <div class="block md:hidden md:mb-4 w-full">
+                <a href="#" class="group inline-flex items-center text-sm">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="group-hover:text-blue-500 text-gray-600 fill-current mr-2">
+                        <path fill-rule="evenodd" d="M8.75.75a.75.75 0 00-1.5 0V2h-.984c-.305 0-.604.08-.869.23l-1.288.737A.25.25 0 013.984 3H1.75a.75.75 0 000 1.5h.428L.066 9.192a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.514 3.514 0 00.686.45A4.492 4.492 0 003 11c.88 0 1.556-.22 2.023-.454a3.515 3.515 0 00.686-.45l.045-.04.016-.015.006-.006.002-.002.001-.002L5.25 9.5l.53.53a.75.75 0 00.154-.838L3.822 4.5h.162c.305 0 .604-.08.869-.23l1.289-.737a.25.25 0 01.124-.033h.984V13h-2.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-2.5V3.5h.984a.25.25 0 01.124.033l1.29.736c.264.152.563.231.868.231h.162l-2.112 4.692a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.517 3.517 0 00.686.45A4.492 4.492 0 0013 11c.88 0 1.556-.22 2.023-.454a3.512 3.512 0 00.686-.45l.045-.04.01-.01.006-.005.006-.006.002-.002.001-.002-.529-.531.53.53a.75.75 0 00.154-.838L13.823 4.5h.427a.75.75 0 000-1.5h-2.234a.25.25 0 01-.124-.033l-1.29-.736A1.75 1.75 0 009.735 2H8.75V.75zM1.695 9.227c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L3 6.327l-1.305 2.9zm10 0c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L13 6.327l-1.305 2.9z"></path>
+                    </svg>
+                    <span class="group-hover:text-blue-500 text-gray-600">MIT License</span>
+                </a>
+                <div class="flex space-x-5 mb-4">
+                    <a href="#" class="group flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-1 group-hover:text-blue-500" viewBox="0 0 25 20" fill="none" stroke="currentColor">
+                            <path stroke-width="1.5" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span class="group-hover:text-blue-500 text-sm text-gray-600 font-semibold">2.4k <span class="font-normal">stars</span></span>
+                    </a>
+                    <a href="#" class="group flex items-center">
+                        <svg aria-hidden="true" viewBox="0 0 20 16" version="1.1" data-view-component="true" height="20" width="20" class="fill-current group-hover:text-blue-500 text-gray-600">
+                            <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
+                        </svg>
+                        <span class="group-hover:text-blue-500 text-sm text-gray-600 font-semibold">2.4k <span class="font-normal">forks</span></span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="h-7 cursor-pointer hover:bg-gray-100 border-2 border-gray-200 flex justify-center items-center rounded-lg w-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-1 group-hover:text-blue-500" viewBox="0 0 25 20" fill="none" stroke="currentColor">
+                            <path stroke-width="1.5" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span class="font-semibold text-gray-700 text-sm">star</span>
+                    </div>
+                    <div class="h-7 cursor-pointer hover:bg-gray-100 border-2 border-gray-200 flex justify-center items-center rounded-lg w-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 26 23" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <span class="font-semibold text-gray-700 text-sm">watch</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex items-center space-x-3 text-xs">
+            <!-- large screen -->
+            <div class="hidden md:flex items-center space-x-3 text-xs">
                 <div class="flex">
                     <div class="flex items-center hover:bg-gray-200 cursor-pointer border border-gray-300 px-3 py-1 rounded-tl-lg rounded-bl-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 26 26" stroke="currentColor">
@@ -107,53 +156,62 @@
             </div>
         </div>
 
-        <ul class="flex mt-4 text-sm">
-            <li class="border-b-2 border-red-400 p-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <ul class="flex items-center justify-between mt-3 text-sm">
+            <div class="flex">
+                <li class="border-b-2 border-red-400 px-4 py-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden sm:inline-block h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    Code
+                </li>
+                <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="hidden sm:inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path></svg>
+                    Issues
+                    <span class="bg-gray-200 px-2 rounded-full text-sm">10</span>
+                </li>
+                <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="hidden sm:inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+                    Pull requests
+                    <span class="bg-gray-200 px-2 rounded-full text-sm">10</span>
+                </li>
+                <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="hidden sm:inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
+                    Actions
+                </li>
+                <li class="hidden md:inline-block cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+                    Projects
+                </li>
+                <li class="hidden lg:inline-block cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
+                    Wiki
+                </li>
+                <li class="hidden lg:inline-block cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
+                    Security
+                </li>
+                <li class="hidden lg:inline-block cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
+                    Insights
+                </li>
+                <li class="hidden xl:inline-block cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 px-4 py-3">
+                    <svg class="inline-block fill-current text-gray-400 mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.429 1.525a6.593 6.593 0 011.142 0c.036.003.108.036.137.146l.289 1.105c.147.56.55.967.997 1.189.174.086.341.183.501.29.417.278.97.423 1.53.27l1.102-.303c.11-.03.175.016.195.046.219.31.41.641.573.989.014.031.022.11-.059.19l-.815.806c-.411.406-.562.957-.53 1.456a4.588 4.588 0 010 .582c-.032.499.119 1.05.53 1.456l.815.806c.08.08.073.159.059.19a6.494 6.494 0 01-.573.99c-.02.029-.086.074-.195.045l-1.103-.303c-.559-.153-1.112-.008-1.529.27-.16.107-.327.204-.5.29-.449.222-.851.628-.998 1.189l-.289 1.105c-.029.11-.101.143-.137.146a6.613 6.613 0 01-1.142 0c-.036-.003-.108-.037-.137-.146l-.289-1.105c-.147-.56-.55-.967-.997-1.189a4.502 4.502 0 01-.501-.29c-.417-.278-.97-.423-1.53-.27l-1.102.303c-.11.03-.175-.016-.195-.046a6.492 6.492 0 01-.573-.989c-.014-.031-.022-.11.059-.19l.815-.806c.411-.406.562-.957.53-1.456a4.587 4.587 0 010-.582c.032-.499-.119-1.05-.53-1.456l-.815-.806c-.08-.08-.073-.159-.059-.19a6.44 6.44 0 01.573-.99c.02-.029.086-.075.195-.045l1.103.303c.559.153 1.112.008 1.529-.27.16-.107.327-.204.5-.29.449-.222.851-.628.998-1.189l.289-1.105c.029-.11.101-.143.137-.146zM8 0c-.236 0-.47.01-.701.03-.743.065-1.29.615-1.458 1.261l-.29 1.106c-.017.066-.078.158-.211.224a5.994 5.994 0 00-.668.386c-.123.082-.233.09-.3.071L3.27 2.776c-.644-.177-1.392.02-1.82.63a7.977 7.977 0 00-.704 1.217c-.315.675-.111 1.422.363 1.891l.815.806c.05.048.098.147.088.294a6.084 6.084 0 000 .772c.01.147-.038.246-.088.294l-.815.806c-.474.469-.678 1.216-.363 1.891.2.428.436.835.704 1.218.428.609 1.176.806 1.82.63l1.103-.303c.066-.019.176-.011.299.071.213.143.436.272.668.386.133.066.194.158.212.224l.289 1.106c.169.646.715 1.196 1.458 1.26a8.094 8.094 0 001.402 0c.743-.064 1.29-.614 1.458-1.26l.29-1.106c.017-.066.078-.158.211-.224a5.98 5.98 0 00.668-.386c.123-.082.233-.09.3-.071l1.102.302c.644.177 1.392-.02 1.82-.63.268-.382.505-.789.704-1.217.315-.675.111-1.422-.364-1.891l-.814-.806c-.05-.048-.098-.147-.088-.294a6.1 6.1 0 000-.772c-.01-.147.039-.246.088-.294l.814-.806c.475-.469.679-1.216.364-1.891a7.992 7.992 0 00-.704-1.218c-.428-.609-1.176-.806-1.82-.63l-1.103.303c-.066.019-.176.011-.299-.071a5.991 5.991 0 00-.668-.386c-.133-.066-.194-.158-.212-.224L10.16 1.29C9.99.645 9.444.095 8.701.031A8.094 8.094 0 008 0zm1.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM11 8a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Setting
+                </li>
+            </div>
+            <div class="px-3 block xl:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-gray-600 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg>
-                Code
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path></svg>
-                Issues
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
-                Pull requests
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
-                Actions
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
-                Projects
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
-                Wiki
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
-                Security
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
-                Insights
-            </li>
-            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
-                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.429 1.525a6.593 6.593 0 011.142 0c.036.003.108.036.137.146l.289 1.105c.147.56.55.967.997 1.189.174.086.341.183.501.29.417.278.97.423 1.53.27l1.102-.303c.11-.03.175.016.195.046.219.31.41.641.573.989.014.031.022.11-.059.19l-.815.806c-.411.406-.562.957-.53 1.456a4.588 4.588 0 010 .582c-.032.499.119 1.05.53 1.456l.815.806c.08.08.073.159.059.19a6.494 6.494 0 01-.573.99c-.02.029-.086.074-.195.045l-1.103-.303c-.559-.153-1.112-.008-1.529.27-.16.107-.327.204-.5.29-.449.222-.851.628-.998 1.189l-.289 1.105c-.029.11-.101.143-.137.146a6.613 6.613 0 01-1.142 0c-.036-.003-.108-.037-.137-.146l-.289-1.105c-.147-.56-.55-.967-.997-1.189a4.502 4.502 0 01-.501-.29c-.417-.278-.97-.423-1.53-.27l-1.102.303c-.11.03-.175-.016-.195-.046a6.492 6.492 0 01-.573-.989c-.014-.031-.022-.11.059-.19l.815-.806c.411-.406.562-.957.53-1.456a4.587 4.587 0 010-.582c.032-.499-.119-1.05-.53-1.456l-.815-.806c-.08-.08-.073-.159-.059-.19a6.44 6.44 0 01.573-.99c.02-.029.086-.075.195-.045l1.103.303c.559.153 1.112.008 1.529-.27.16-.107.327-.204.5-.29.449-.222.851-.628.998-1.189l.289-1.105c.029-.11.101-.143.137-.146zM8 0c-.236 0-.47.01-.701.03-.743.065-1.29.615-1.458 1.261l-.29 1.106c-.017.066-.078.158-.211.224a5.994 5.994 0 00-.668.386c-.123.082-.233.09-.3.071L3.27 2.776c-.644-.177-1.392.02-1.82.63a7.977 7.977 0 00-.704 1.217c-.315.675-.111 1.422.363 1.891l.815.806c.05.048.098.147.088.294a6.084 6.084 0 000 .772c.01.147-.038.246-.088.294l-.815.806c-.474.469-.678 1.216-.363 1.891.2.428.436.835.704 1.218.428.609 1.176.806 1.82.63l1.103-.303c.066-.019.176-.011.299.071.213.143.436.272.668.386.133.066.194.158.212.224l.289 1.106c.169.646.715 1.196 1.458 1.26a8.094 8.094 0 001.402 0c.743-.064 1.29-.614 1.458-1.26l.29-1.106c.017-.066.078-.158.211-.224a5.98 5.98 0 00.668-.386c.123-.082.233-.09.3-.071l1.102.302c.644.177 1.392-.02 1.82-.63.268-.382.505-.789.704-1.217.315-.675.111-1.422-.364-1.891l-.814-.806c-.05-.048-.098-.147-.088-.294a6.1 6.1 0 000-.772c-.01-.147.039-.246.088-.294l.814-.806c.475-.469.679-1.216.364-1.891a7.992 7.992 0 00-.704-1.218c-.428-.609-1.176-.806-1.82-.63l-1.103.303c-.066.019-.176.011-.299-.071a5.991 5.991 0 00-.668-.386c-.133-.066-.194-.158-.212-.224L10.16 1.29C9.99.645 9.444.095 8.701.031A8.094 8.094 0 008 0zm1.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM11 8a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                Setting
-            </li>
+            </div>
         </ul>
     </header>
 
     <main class="py-10">
-        <div class="container mx-auto px-5 border-b pb-10">
-            <div class="flex items-start">
-                <div class="w-3/4 mr-7">
-                    <div class="flex justify-between mb-3">
+        <div class="px-5 lg:px-9 border-b pb-10">
+            <div class="flex flex-col md:flex-row items-start">
+                <div class="w-full md:w-3/4 mr-7">
+                    <div class="flex justify-between items-center mb-3">
                         <ul class="flex space-x-2">
                             <li class="flex items-center space-x-2 bg-gray-50 border cursor-pointer hover:bg-gray-200 px-3 py-1 rounded-lg">
                                 <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="octicon octicon-git-branch text-gray">
@@ -164,14 +222,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </li>
-                            <li class="group flex items-center space-x-1 cursor-pointer hover:text-blue-500 px-3 py-1 rounded-lg">
+                            <li class="hidden group lg:flex items-center space-x-1 cursor-pointer hover:text-blue-500 px-3 py-1 rounded-lg">
                                 <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current">
                                     <path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path>
                                 </svg>
                                 <span>1 </span>
                                 <span class="text-gray-500 group-hover:text-blue-500">branch</span>
                             </li>
-                            <li class="group flex items-center space-x-1 cursor-pointer hover:text-blue-500 py-1 rounded-lg">
+                            <li class="hidden group lg:flex items-center space-x-1 cursor-pointer hover:text-blue-500 py-1 rounded-lg">
                                 <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current">
                                     <path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"></path>
                                 </svg>
@@ -180,7 +238,7 @@
                             </li>
                         </ul>
 
-                        <ul class="flex space-x-3">
+                        <ul class="hidden md:flex space-x-3">
                             <li class="flex items-center space-x-2 bg-gray-50 border cursor-pointer hover:bg-gray-200 px-3 py-1 rounded-lg">
                                 Go to file
                             </li>
@@ -200,6 +258,12 @@
                                 </svg>
                             </li>
                         </ul>
+
+                        <div class="block md:hidden bg-gray-100 border px-3 py-1 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-gray-600 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                            </svg>
+                        </div>
                     </div>
 
                     <div class="bg-blue-50 border border-b-0 border-blue-200 p-3 rounded-t-lg">
@@ -211,8 +275,13 @@
                             </div>
 
                             <div class="flex items-center">
-                                <a href="#" class="hover:text-blue-600 hover:underline mr-2 text-gray-500">aa3d4be</a>
-                                <a href="#" class="hover:text-blue-600 hover:underline mr-3 text-gray-500">12 days ago</a>
+                                <a href="#" class="hidden lg:block hover:text-blue-600 hover:underline mr-2 text-gray-500">aa3d4be</a>
+                                <a href="#" class="flex items-center hover:text-blue-600 hover:underline mr-3 text-gray-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    12 days ago
+                                </a>
                                 <a href="#" class="group flex items-center hover:text-blue-600">
                                 <span class="flex items-center mr-1">
                                     <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current group-hover:text-blue-600 mr-1 text-black">
@@ -220,14 +289,14 @@
                                     </svg>
                                     2
                                 </span>
-                                    <span class="text-gray-500 group-hover:text-blue-600">commits</span>
+                                    <span class="hidden lg:block text-gray-500 group-hover:text-blue-600">commits</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!--file explorer-->
-                    <div class="border divide-y text-sm rounded-b-lg mb-3">
+                    <div class="border divide-y text-sm rounded-b-lg mb-5">
                         <div class="flex hover:bg-gray-100 items-center justify-between p-3 text-gray-600">
                             <div class="flex items-center">
                                 <svg aria-label="Directory" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current text-blue-400 mr-4">
@@ -261,15 +330,15 @@
                     </div>
 
                     <!--readme-->
-                    <div class="border p-3 rounded-lg text-sm">
-                        <div class="flex items-center justify-between">
+                    <div class="-mx-5 sm:-mx-0 sm:pt-0 rounded-lg text-sm">
+                        <div class="bg-white sticky top-0 border rounded-t-lg flex items-center justify-between p-5">
                             <h1 class="font-semibold">readme.md</h1>
                             <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current hover:text-blue-600 cursor-pointer">
                                 <path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path>
                             </svg>
                         </div>
 
-                        <div class="px-5 pb-5 mt-4 max-w-none prose prose-default prose-blue">
+                        <div class="p-5 max-w-none prose prose-default prose-blue border-0 sm:border sm:border-t-0">
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 421 45" class="w-1/2">
     <path fill="#16BDCA" fill-rule="evenodd"
         d="M27.5 8c-7.333 0-11.917 3.667-13.75 11 2.75-3.667 5.958-5.042 9.625-4.125 2.092.523 3.587 2.04 5.242 3.72 2.697 2.738 5.817 5.905 12.633 5.905 7.333 0 11.917-3.667 13.75-11-2.75 3.667-5.958 5.042-9.625 4.125-2.092-.523-3.587-2.04-5.242-3.72C37.436 11.167 34.316 8 27.5 8zM13.75 24.5c-7.333 0-11.917 3.667-13.75 11 2.75-3.667 5.958-5.042 9.625-4.125 2.092.523 3.587 2.04 5.242 3.72C17.564 37.834 20.684 41 27.5 41c7.333 0 11.917-3.667 13.75-11-2.75 3.667-5.958 5.042-9.625 4.125-2.092-.523-3.587-2.04-5.242-3.72-2.697-2.738-5.817-5.905-12.633-5.905z"
@@ -338,7 +407,8 @@ yarn add @tailwindcss/typography
                         </div>
                     </div>
                 </div>
-                <div class="w-1/4 divide-y">
+                <hr class="-mx-5 block md:hidden my-8 w-screen">
+                <div class="w-full md:w-1/4 divide-y">
                     <!--description-->
                     <div class="pb-5">
                         <div class="flex justify-between">
@@ -445,12 +515,12 @@ yarn add @tailwindcss/typography
         </div>
     </main>
 
-    <footer class="pb-10">
+    <footer class="pb-10 px-20">
         <div class="container mx-auto">
-            <div class="flex items-center text-sm justify-between">
-                <div class="flex items-center">
-                    <div class="mr-10 text-gray-500">&copy; 2021 GitHub, Inc.</div>
-                    <ul class="flex items-center text-blue-500 space-x-10">
+            <div class="flex flex-col lg:flex-row items-center text-sm justify-between">
+                <div class="flex items-center mb-4 lg:mb-0">
+                    <div class="mr-3 lg:mr-10 text-gray-500 min-w-max">&copy; 2021 GitHub, Inc.</div>
+                    <ul class="flex items-center text-blue-500 space-x-3 lg:space-x-10">
                         <li class="hover:underline">
                             <a href="#">Terms</a>
                         </li>
@@ -468,10 +538,10 @@ yarn add @tailwindcss/typography
                         </li>
                     </ul>
                 </div>
-                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="24" width="24" class="fill-current mx-24 text-gray-300 cursor-pointer hover:text-gray-600">
+                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="24" width="24" class="hidden lg:block fill-current mx-24 text-gray-300 cursor-pointer hover:text-gray-600">
                     <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
-                <ul class="flex items-center text-blue-500 space-x-12">
+                <ul class="flex items-center text-blue-500 space-x-3 lg:space-x-12">
                     <li class="hover:underline">
                         <a href="#">Contact GitHub</a>
                     </li>
