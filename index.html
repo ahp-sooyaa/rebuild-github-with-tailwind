@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebuild Github with tailwind</title>
+
+    <!-- you don't need compiled tailwind, connect directly to tailwind entry -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body>
+    <nav class="flex items-center justify-between bg-gray-800 px-9 py-4 text-white">
+        <!--left-->
+        <div class="flex space-x-5">
+            <a href="#">
+                <svg fill="white" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+            <div class="flex items-center relative">
+                <input type="text" placeholder="Search or jump to…" class="w-64 bg-transparent border border-gray-500 px-3 rounded-lg h-full">
+                <div class="absolute right-0">
+                    <div class="border border-gray-500 mr-2 px-2 rounded text-white text-xs">
+                        /
+                    </div>
+                </div>
+            </div>
+            <ul class="flex items-center space-x-5">
+                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Pull requests</li>
+                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Issues</li>
+                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Marketplace</li>
+                <li class="font-semibold cursor-pointer hover:text-gray-400 text-sm">Explore</li>
+            </ul>
+        </div>
+
+        <!--right-->
+        <div class="flex space-x-3 items-center">
+            <div class="relative cursor-pointer hover:text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <div class="absolute bg-blue-500 border-2 border-gray-900 h-3 right-0 rounded-full top-0 w-3"></div>
+            </div>
+            <div class="flex items-center cursor-pointer hover:text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+            <div class="flex items-center cursor-pointer hover:text-gray-400">
+                <img src="https://avatars.githubusercontent.com/u/57122433?s=60&amp;v=4" alt="@ahp-sooyaa" size="20" data-view-component="true" height="20" width="20" class="rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gray-100 px-9 pt-4">
+        <div class="flex justify-between">
+            <div class="flex items-center">
+                <svg class="mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                <div class="flex space-x-2 text-xl">
+                    <a href="#" class="text-blue-600">
+                        ahp-sooyaa
+                    </a>
+                    <span class="text-black">/</span>
+                    <a href="#" class="text-blue-600 font-semibold">html-css-workshop</a>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 text-xs">
+                <div class="flex">
+                    <div class="flex items-center hover:bg-gray-200 cursor-pointer border border-gray-300 px-3 py-1 rounded-tl-lg rounded-bl-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 26 26" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        Unwatch
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="flex items-center hover:text-blue-600 bg-white cursor-pointer border border-l-0 border-gray-300 px-3 py-1 rounded-tr-lg rounded-br-lg">1</div>
+                </div>
+                <div class="flex">
+                    <div class="flex items-center hover:bg-gray-200 cursor-pointer border border-gray-300 px-3 py-1 rounded-tl-lg rounded-bl-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        Unstar
+                    </div>
+                    <div class="flex items-center hover:text-blue-600 bg-white cursor-pointer border border-l-0 border-gray-300 px-3 py-1 rounded-tr-lg rounded-br-lg">1</div>
+                </div>
+                <div class="flex">
+                    <div class="flex items-center hover:bg-gray-200 cursor-pointer border border-gray-300 px-3 py-1 rounded-tl-lg rounded-bl-lg">
+                        <svg aria-hidden="true" viewBox="0 0 20 16" version="1.1" data-view-component="true" height="20" width="20">
+                            <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
+                        </svg>
+                        Fork
+                    </div>
+                    <div class="flex items-center hover:text-blue-600 bg-white cursor-pointer border border-l-0 border-gray-300 px-3 py-1 rounded-tr-lg rounded-br-lg">1</div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="flex mt-4 text-sm space-x-3">
+            <li class="border-b-2 border-red-400 p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Code
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path></svg>
+                Issues
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+                Pull requests
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
+                Actions
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+                Projects
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
+                Wiki
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
+                Security
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
+                Insights
+            </li>
+            <li class="cursor-pointer text-black border-b-2 border-gray-100 hover:border-gray-400 p-3">
+                <svg class="fill-current text-gray-400 inline mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.429 1.525a6.593 6.593 0 011.142 0c.036.003.108.036.137.146l.289 1.105c.147.56.55.967.997 1.189.174.086.341.183.501.29.417.278.97.423 1.53.27l1.102-.303c.11-.03.175.016.195.046.219.31.41.641.573.989.014.031.022.11-.059.19l-.815.806c-.411.406-.562.957-.53 1.456a4.588 4.588 0 010 .582c-.032.499.119 1.05.53 1.456l.815.806c.08.08.073.159.059.19a6.494 6.494 0 01-.573.99c-.02.029-.086.074-.195.045l-1.103-.303c-.559-.153-1.112-.008-1.529.27-.16.107-.327.204-.5.29-.449.222-.851.628-.998 1.189l-.289 1.105c-.029.11-.101.143-.137.146a6.613 6.613 0 01-1.142 0c-.036-.003-.108-.037-.137-.146l-.289-1.105c-.147-.56-.55-.967-.997-1.189a4.502 4.502 0 01-.501-.29c-.417-.278-.97-.423-1.53-.27l-1.102.303c-.11.03-.175-.016-.195-.046a6.492 6.492 0 01-.573-.989c-.014-.031-.022-.11.059-.19l.815-.806c.411-.406.562-.957.53-1.456a4.587 4.587 0 010-.582c.032-.499-.119-1.05-.53-1.456l-.815-.806c-.08-.08-.073-.159-.059-.19a6.44 6.44 0 01.573-.99c.02-.029.086-.075.195-.045l1.103.303c.559.153 1.112.008 1.529-.27.16-.107.327-.204.5-.29.449-.222.851-.628.998-1.189l.289-1.105c.029-.11.101-.143.137-.146zM8 0c-.236 0-.47.01-.701.03-.743.065-1.29.615-1.458 1.261l-.29 1.106c-.017.066-.078.158-.211.224a5.994 5.994 0 00-.668.386c-.123.082-.233.09-.3.071L3.27 2.776c-.644-.177-1.392.02-1.82.63a7.977 7.977 0 00-.704 1.217c-.315.675-.111 1.422.363 1.891l.815.806c.05.048.098.147.088.294a6.084 6.084 0 000 .772c.01.147-.038.246-.088.294l-.815.806c-.474.469-.678 1.216-.363 1.891.2.428.436.835.704 1.218.428.609 1.176.806 1.82.63l1.103-.303c.066-.019.176-.011.299.071.213.143.436.272.668.386.133.066.194.158.212.224l.289 1.106c.169.646.715 1.196 1.458 1.26a8.094 8.094 0 001.402 0c.743-.064 1.29-.614 1.458-1.26l.29-1.106c.017-.066.078-.158.211-.224a5.98 5.98 0 00.668-.386c.123-.082.233-.09.3-.071l1.102.302c.644.177 1.392-.02 1.82-.63.268-.382.505-.789.704-1.217.315-.675.111-1.422-.364-1.891l-.814-.806c-.05-.048-.098-.147-.088-.294a6.1 6.1 0 000-.772c-.01-.147.039-.246.088-.294l.814-.806c.475-.469.679-1.216.364-1.891a7.992 7.992 0 00-.704-1.218c-.428-.609-1.176-.806-1.82-.63l-1.103.303c-.066.019-.176.011-.299-.071a5.991 5.991 0 00-.668-.386c-.133-.066-.194-.158-.212-.224L10.16 1.29C9.99.645 9.444.095 8.701.031A8.094 8.094 0 008 0zm1.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM11 8a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Setting
+            </li>
+        </ul>
+    </header>
+
+    <main class="py-10">
+        <div class="container mx-auto px-5 border-b pb-10">
+            <div class="flex items-start">
+                <div class="w-3/4 mr-7">
+                    <div class="flex justify-between mb-3">
+                        <ul class="flex space-x-2">
+                            <li class="flex items-center space-x-2 bg-gray-50 border cursor-pointer hover:bg-gray-200 px-3 py-1 rounded-lg">
+                                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="octicon octicon-git-branch text-gray">
+                                    <path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path>
+                                </svg>
+                                <span>main</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </li>
+                            <li class="group flex items-center space-x-1 cursor-pointer hover:text-blue-500 px-3 py-1 rounded-lg">
+                                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current">
+                                    <path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path>
+                                </svg>
+                                <span>1 </span>
+                                <span class="text-gray-500 group-hover:text-blue-500">branch</span>
+                            </li>
+                            <li class="group flex items-center space-x-1 cursor-pointer hover:text-blue-500 py-1 rounded-lg">
+                                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current">
+                                    <path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"></path>
+                                </svg>
+                                <span>0 </span>
+                                <span class="text-gray-500 group-hover:text-blue-500">tags</span>
+                            </li>
+                        </ul>
+
+                        <ul class="flex space-x-3">
+                            <li class="flex items-center space-x-2 bg-gray-50 border cursor-pointer hover:bg-gray-200 px-3 py-1 rounded-lg">
+                                Go to file
+                            </li>
+                            <li class="flex items-center space-x-2 bg-gray-50 border cursor-pointer hover:bg-gray-200 px-3 py-1 rounded-lg">
+                                Add file
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </li>
+                            <li class="flex items-center space-x-2 bg-green-500 border border-green-600 cursor-pointer hover:bg-green-600 px-3 py-1 rounded-lg text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-200" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Code</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-200" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border border-b-0 border-blue-200 p-3 rounded-t-lg">
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center">
+                                <img data-test-selector="commits-avatar-stack-avatar-image" src="https://avatars.githubusercontent.com/u/57122433?s=48&amp;v=4" width="24" height="24" alt="@ahp-sooyaa" class="rounded-full mr-2">
+                                <a href="#" class="font-bold hover:underline mr-2">ahp-sooyaa</a>
+                                <a href="#" class="hover:underline">Add readme and screenshot</a>
+                            </div>
+
+                            <div class="flex items-center">
+                                <a href="#" class="hover:text-blue-600 hover:underline mr-2 text-gray-500">aa3d4be</a>
+                                <a href="#" class="hover:text-blue-600 hover:underline mr-3 text-gray-500">12 days ago</a>
+                                <a href="#" class="group flex items-center hover:text-blue-600">
+                                <span class="flex items-center mr-1">
+                                    <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current group-hover:text-blue-600 mr-1 text-black">
+                                        <path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path>
+                                    </svg>
+                                    2
+                                </span>
+                                    <span class="text-gray-500 group-hover:text-blue-600">commits</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--file explorer-->
+                    <div class="border divide-y text-sm rounded-b-lg mb-3">
+                        <div class="flex hover:bg-gray-100 items-center justify-between p-3 text-gray-600">
+                            <div class="flex items-center">
+                                <svg aria-label="Directory" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current text-blue-400 mr-4">
+                                    <path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path>
+                                </svg>
+                                <a href="#" class="hover:underline hover:text-blue-500">Images</a>
+                            </div>
+                            <div>Finished all</div>
+                            <div>12 days ago</div>
+                        </div>
+                        <div class="flex hover:bg-gray-100 items-center justify-between p-3 text-gray-600">
+                            <div class="flex items-center">
+                                <svg aria-label="Directory" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current text-blue-400 mr-4">
+                                    <path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path>
+                                </svg>
+                                <a href="#" class="hover:underline hover:text-blue-500">Images</a>
+                            </div>
+                            <div>Finished all</div>
+                            <div>12 days ago</div>
+                        </div>
+                        <div class="flex hover:bg-gray-100 items-center justify-between p-3 text-gray-600">
+                            <div class="flex items-center">
+                                <svg aria-label="Directory" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current text-blue-400 mr-4">
+                                    <path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path>
+                                </svg>
+                                <a href="#" class="hover:underline hover:text-blue-500">Images</a>
+                            </div>
+                            <div>Finished all</div>
+                            <div>12 days ago</div>
+                        </div>
+                    </div>
+
+                    <!--readme-->
+                    <div class="border p-3 rounded-lg text-sm">
+                        <div class="flex items-center justify-between">
+                            <h1 class="font-semibold">readme.md</h1>
+                            <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current hover:text-blue-600 cursor-pointer">
+                                <path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path>
+                            </svg>
+                        </div>
+
+                        <div class="px-5 pb-5 mt-4 max-w-none prose prose-default prose-blue">
+<p><strong>As of v0.3.0, @tailwindcss/typography is designed for Tailwind CSS v2.0+.</strong></p>
+<p>A plugin that provides a set of <code>prose</code> classes you can use to add beautiful typographic defaults to any vanilla HTML you don&#39;t control (like HTML rendered from Markdown, or pulled from a CMS).</p>
+<p><a href="https://tailwindcss-typography.netlify.app/">View live demo</a></p>
+<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"prose lg:prose-xl"</span>&gt;</span>
+    </span><span class="hljs-template-variable">{{ markdown }}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+<h2 id="installation">Installation</h2>
+<p>Install the plugin from npm:</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Using npm</span>
+<span class="hljs-built_in">npm</span> install @tailwindcss/typography
+
+<span class="hljs-comment"># Using Yarn</span>
+yarn add @tailwindcss/typography
+</code></pre>
+<p>Then add the plugin to your <code>tailwind.config.js</code> file:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// tailwind.config.js</span>
+<span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = {
+    theme: {
+        <span class="hljs-comment">// ...</span>
+    },
+    plugins: [
+        require(<span class="hljs-string">'@tailwindcss/typography'</span>),
+        <span class="hljs-comment">// ...</span>
+    ],
+}
+</code></pre>
+<h3 id="using-a-cdn">Using a CDN</h3>
+<p>If you need to pull in these styles via CDN, you can do so using services like UNPKG or jsDeliver:</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- From UNPKG --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+    <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css"</span>
+/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- From jsDelivr --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+    <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.4.x/dist/typography.min.css"</span>
+/&gt;</span>
+</code></pre>
+<p>To use these styles alongside the rest of Tailwind via CDN, we recommend pulling in each layer separately so you can put the styles in the correct order:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">link</span> rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"https://unpkg.com/tailwindcss@^1.5/dist/base.min.css"</span> /&gt;
+&lt;<span class="hljs-keyword">link</span> rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"https://unpkg.com/tailwindcss@^1.5/dist/components.min.css"</span> /&gt;
+&lt;<span class="hljs-keyword">link</span>
+    rel=<span class="hljs-string">"stylesheet"</span>
+    href=<span class="hljs-string">"https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"</span>
+/&gt;
+&lt;<span class="hljs-keyword">link</span> rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"https://unpkg.com/tailwindcss@^1.5/dist/utilities.min.css"</span> /&gt;
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/4 divide-y">
+                    <!--description-->
+                    <div class="pb-5">
+                        <div class="flex justify-between">
+                            <h1 class="font-semibold mb-3">About</h1>
+                            <svg aria-label="Edit repository metadata" role="img" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="cursor-pointer fill-current hover:text-blue-500">
+                                <path fill-rule="evenodd" d="M7.429 1.525a6.593 6.593 0 011.142 0c.036.003.108.036.137.146l.289 1.105c.147.56.55.967.997 1.189.174.086.341.183.501.29.417.278.97.423 1.53.27l1.102-.303c.11-.03.175.016.195.046.219.31.41.641.573.989.014.031.022.11-.059.19l-.815.806c-.411.406-.562.957-.53 1.456a4.588 4.588 0 010 .582c-.032.499.119 1.05.53 1.456l.815.806c.08.08.073.159.059.19a6.494 6.494 0 01-.573.99c-.02.029-.086.074-.195.045l-1.103-.303c-.559-.153-1.112-.008-1.529.27-.16.107-.327.204-.5.29-.449.222-.851.628-.998 1.189l-.289 1.105c-.029.11-.101.143-.137.146a6.613 6.613 0 01-1.142 0c-.036-.003-.108-.037-.137-.146l-.289-1.105c-.147-.56-.55-.967-.997-1.189a4.502 4.502 0 01-.501-.29c-.417-.278-.97-.423-1.53-.27l-1.102.303c-.11.03-.175-.016-.195-.046a6.492 6.492 0 01-.573-.989c-.014-.031-.022-.11.059-.19l.815-.806c.411-.406.562-.957.53-1.456a4.587 4.587 0 010-.582c.032-.499-.119-1.05-.53-1.456l-.815-.806c-.08-.08-.073-.159-.059-.19a6.44 6.44 0 01.573-.99c.02-.029.086-.075.195-.045l1.103.303c.559.153 1.112.008 1.529-.27.16-.107.327-.204.5-.29.449-.222.851-.628.998-1.189l.289-1.105c.029-.11.101-.143.137-.146zM8 0c-.236 0-.47.01-.701.03-.743.065-1.29.615-1.458 1.261l-.29 1.106c-.017.066-.078.158-.211.224a5.994 5.994 0 00-.668.386c-.123.082-.233.09-.3.071L3.27 2.776c-.644-.177-1.392.02-1.82.63a7.977 7.977 0 00-.704 1.217c-.315.675-.111 1.422.363 1.891l.815.806c.05.048.098.147.088.294a6.084 6.084 0 000 .772c.01.147-.038.246-.088.294l-.815.806c-.474.469-.678 1.216-.363 1.891.2.428.436.835.704 1.218.428.609 1.176.806 1.82.63l1.103-.303c.066-.019.176-.011.299.071.213.143.436.272.668.386.133.066.194.158.212.224l.289 1.106c.169.646.715 1.196 1.458 1.26a8.094 8.094 0 001.402 0c.743-.064 1.29-.614 1.458-1.26l.29-1.106c.017-.066.078-.158.211-.224a5.98 5.98 0 00.668-.386c.123-.082.233-.09.3-.071l1.102.302c.644.177 1.392-.02 1.82-.63.268-.382.505-.789.704-1.217.315-.675.111-1.422-.364-1.891l-.814-.806c-.05-.048-.098-.147-.088-.294a6.1 6.1 0 000-.772c-.01-.147.039-.246.088-.294l.814-.806c.475-.469.679-1.216.364-1.891a7.992 7.992 0 00-.704-1.218c-.428-.609-1.176-.806-1.82-.63l-1.103.303c-.066.019-.176.011-.299-.071a5.991 5.991 0 00-.668-.386c-.133-.066-.194-.158-.212-.224L10.16 1.29C9.99.645 9.444.095 8.701.031A8.094 8.094 0 008 0zm1.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM11 8a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="mb-3 pr-5">This repository is built by following along laracasts html-css-workshop series.</p>
+
+                        <a class="cursor-pointer flex hover:text-blue-500 items-center text-gray-500 text-sm">
+                            <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="fill-current mr-3">
+                                <path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path>
+                            </svg>
+                            <p>Readme</p>
+                        </a>
+                    </div>
+
+                    <!--releases-->
+                    <div class="py-5">
+                        <a href="#" class="hover:text-blue-500 font-semibold mb-3 block">Releases</a>
+                        <div class="text-xs">
+                            <div class="text-gray-500">No releases published</div>
+                            <a href="#" class="text-blue-500 hover:underline">Create a new release</a>
+                        </div>
+                    </div>
+
+                    <!--packages-->
+                    <div class="py-5">
+                        <a href="#" class="hover:text-blue-500 font-semibold mb-3 block">Packages</a>
+                        <div class="text-xs">
+                            <div class="text-gray-500">No releases published</div>
+                            <a href="#" class="text-blue-500 hover:underline">Create a new release</a>
+                        </div>
+                    </div>
+
+                    <!--languages-->
+                    <div class="py-5">
+                        <h1 class="font-semibold mb-3">Languages</h1>
+                        <div class="bg-yellow-500 rounded-lg h-2 mb-2"></div>
+                        <div class="flex items-center group">
+                            <div class="bg-yellow-500 h-2 mr-3 rounded-full w-2"></div>
+                            <a href="#" class="text-xs group-hover:text-blue-600">
+                                HTML <span class="text-gray-500 group-hover:text-blue-600">100%</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pb-10">
+        <div class="container mx-auto">
+            <div class="flex items-center text-sm justify-between">
+                <div class="flex items-center">
+                    <div class="mr-10 text-gray-500">&copy; 2021 GitHub, Inc.</div>
+                    <ul class="flex items-center text-blue-500 space-x-10">
+                        <li class="hover:underline">
+                            <a href="#">Terms</a>
+                        </li>
+                        <li class="hover:underline">
+                            <a href="#">Policy</a>
+                        </li>
+                        <li class="hover:underline">
+                            <a href="#">Security</a>
+                        </li>
+                        <li class="hover:underline">
+                            <a href="#">Status</a>
+                        </li>
+                        <li class="hover:underline">
+                            <a href="#">Docs</a>
+                        </li>
+                    </ul>
+                </div>
+                <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="24" width="24" class="fill-current mx-24 text-gray-300">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                <ul class="flex items-center text-blue-500 space-x-12">
+                    <li class="hover:underline">
+                        <a href="#">Contact GitHub</a>
+                    </li>
+                    <li class="hover:underline">
+                        <a href="#">Pricing</a>
+                    </li>
+                    <li class="hover:underline">
+                        <a href="#">API</a>
+                    </li>
+                    <li class="hover:underline">
+                        <a href="#">Training</a>
+                    </li>
+                    <li class="hover:underline">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="hover:underline">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
